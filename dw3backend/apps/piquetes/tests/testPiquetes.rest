@@ -1,0 +1,82 @@
+### Necessário para pegar o token
+### Post
+# @name loginAutenticado
+POST http://localhost:40000/Login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+### Seta o token
+@accessToken = {{loginAutenticado.response.body.$.token}}
+
+###
+
+### sem token
+GET http://localhost:40000/getAllPiquetes HTTP/1.1
+content-type: application/json
+
+###
+
+### pasto inexistente
+POST http://localhost:40000/insertPiquete HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "descricao": "Piquete sem pasto",
+    "latitude": -20.42,
+    "longitude": -49.97,
+    "pastoidfk": 999999
+}
+
+###
+
+### teste de inserção de piquete
+POST http://localhost:40000/insertPiquete HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "descricao": "Piquete S2",
+    "latitude": -20.431500,
+    "longitude": -49.982200,
+    "pastoidfk": 2
+}
+
+###
+
+### teste de buscar todos os piquetes
+GET http://localhost:40000/getAllPiquetes HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+###
+
+### teste de buscar piquete por ID
+GET http://localhost:40000/getPiqueteByID/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+###
+
+### teste de atualização de piquete
+PUT http://localhost:40000/updatePiquete/3 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "descricao": "Piquete S1",
+    "latitude": -20.430120,
+    "longitude": -49.981050,
+    "pastoidfk": 2
+}
+
+###
+
+### teste de exclusão lógica
+DELETE http://localhost:40000/deletePiquete/3 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}

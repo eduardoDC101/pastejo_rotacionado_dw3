@@ -1,0 +1,76 @@
+### Necessário para pegar o token
+### Post
+# @name loginAutenticado
+POST http://localhost:40000/Login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+### Seta o token
+@accessToken = {{loginAutenticado.response.body.$.token}}
+
+###
+
+### sem token
+GET http://localhost:40000/getAllAnimais HTTP/1.1
+content-type: application/json
+
+###
+
+### data inválida
+POST http://localhost:40000/insertAnimal HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "nome": "Sem data",
+    "datanasc": "2023-02-31"
+}
+
+###
+
+### teste de inserção de animal
+POST http://localhost:40000/insertAnimal HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "nome": "Malhada",
+    "datanasc": "2023-05-10"
+}
+
+###
+
+### teste de buscar todos os animais
+GET http://localhost:40000/getAllAnimais HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+###
+
+### teste de buscar animal por ID
+GET http://localhost:40000/getAnimalByID/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+###
+
+### teste de atualização de animal
+PUT http://localhost:40000/updateAnimal/3 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "nome": "Trovão",
+    "datanasc": "2020-11-21"
+}
+
+###
+
+### teste de exclusão lógica
+DELETE http://localhost:40000/deleteAnimal/3 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}

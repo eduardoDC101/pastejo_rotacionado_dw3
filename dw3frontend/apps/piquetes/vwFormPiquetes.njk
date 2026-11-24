@@ -1,0 +1,69 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css">
+
+  <header class="page-header">
+    <p class="page-kicker fw-semibold mb-2">Cadastro</p>
+    <h1 class="h3 fw-bold mb-2" id="tituloFormulario">Formulário de piquetes</h1>
+  </header>
+
+  <div class="card page-card border-0 shadow-sm">
+    <div class="card-body p-4">
+      <form id="frmPiquetes" data-servidor-dw3="{{ servidorDw3 }}">
+        <input type="hidden" id="piqueteid" name="piqueteid" value="0">
+
+        <div class="row g-3">
+          <div class="col-12 col-md-2 d-none" id="grupoId">
+            <label for="idVisivel" class="form-label">ID</label>
+            <input type="text" class="form-control" id="idVisivel" value="" disabled>
+          </div>
+
+          <div class="col-12 col-md-5">
+            <label for="descricao" class="form-label">Descrição <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="descricao" name="descricao" maxlength="60" required>
+          </div>
+
+          <div class="col-12 col-md-5">
+            <label for="pastoidfk" class="form-label">Pasto <span class="text-danger">*</span></label>
+            <select class="form-select" id="pastoidfk" name="pastoidfk" required>
+              <option value="">Selecione um pasto</option>
+            </select>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="latitude" class="form-label">Latitude <span class="text-danger">*</span></label>
+            <input type="number" class="form-control" id="latitude" name="latitude" min="-90" max="90" step="0.000001" placeholder="-20.421530" required>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="longitude" class="form-label">Longitude <span class="text-danger">*</span></label>
+            <input type="number" class="form-control" id="longitude" name="longitude" min="-180" max="180" step="0.000001" placeholder="-49.972810" required>
+          </div>
+        </div>
+
+        <div class="form-actions d-flex flex-column flex-sm-row gap-2">
+          <button type="button" class="btn btn-primary d-none" id="btnInserirPiquete">
+            <i class="bi bi-plus-lg me-1"></i>Inserir
+          </button>
+          <button type="button" class="btn btn-warning d-none" id="btnAtualizarPiquete" disabled>
+            <i class="bi bi-pencil-square me-1"></i>Atualizar
+          </button>
+          <button type="button" class="btn btn-danger d-none" id="btnRemoverPiquete" disabled>
+            <i class="bi bi-trash me-1"></i>Remover
+          </button>
+          <a class="btn btn-outline-secondary" href="/piquetes" id="btnFecharPiquete">
+            <i class="bi bi-x-lg me-1"></i>Fechar
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/dw3frontend.js"></script>
+  <script src="https://code.jquery.com/jquery-4.0.0.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="/apps/piquetes/vwFormPiquetes.js"></script>
+{% endblock %}
