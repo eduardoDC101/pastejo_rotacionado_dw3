@@ -9,7 +9,7 @@ Sistema de pastos, piquetes, animais e alocações, feito para o Trabalho 3 da d
 - `animal`: `animalid`, `nome`, `datanasc date`, `removido`.
 - `alocado`: `alocadoid`, `animalidfk`, `piqueteidfk`, `datainicio date`, `datafinal date`, `removido`.
 - Um pasto tem vários piquetes. Animal e piquete se relacionam pela tabela `alocado`.
-- `usuarios` serve só para o login, não é uma das quatro tabelas do CRUD.
+- `usuarios` serve só para o login, não é uma das quatro tabelas do crud.
 
 A exclusão muda `removido` para `true`, a linha continua no banco. As consultas só retornam registros com `removido = false`. Um pasto só pode ser removido depois que seus piquetes forem removidos, e um piquete ou animal só pode ser removido depois que suas alocações forem removidas.
 
