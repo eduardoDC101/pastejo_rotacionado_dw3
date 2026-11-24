@@ -119,7 +119,7 @@ async function vwGetAnimalByID() {
     }
 
     if (data.status !== 'ok' || !Array.isArray(data.registro)) {
-      throw new Error(data.status || 'Resposta inválida do servidor backend.');
+      throw new Error(data.status || 'Resposta inválida do servidor.');
     }
 
     var animal = data.registro[0];

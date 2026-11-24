@@ -81,7 +81,7 @@ async function main() {
     comTokenExpirado.data
   );
 
-  // ---------- Pasto ----------
+  // Pasto
   const pastoInvalido = await req("POST", "/insertPasto", { token, body: { descricao: "", areatotal: -1 } });
   assert(pastoInvalido.data.status !== "ok" && pastoInvalido.data.linhasAfetadas === 0, "InsertPasto rejeita dados inválidos", pastoInvalido.data);
 
@@ -106,7 +106,7 @@ async function main() {
   const pastoAlterado = await req("GET", "/getPastoByID/" + pasto.pastoid, { token });
   assert(pastoAlterado.data.registro[0].descricao === descPasto + " A", "UpdatePasto alterou o registro correto", pastoAlterado.data);
 
-  // ---------- Piquete ----------
+  // Piquete
   const piqueteSemPasto = await req("POST", "/insertPiquete", {
     token,
     body: { descricao: "Sem pasto", latitude: -20.4, longitude: -49.9, pastoidfk: 999999 },
@@ -146,7 +146,7 @@ async function main() {
   const pastoComPiquete = await req("DELETE", "/deletePasto/" + pasto.pastoid, { token });
   assert(pastoComPiquete.data.status === "Pasto possui piquetes ativos.", "DeletePasto recusa pasto com piquetes ativos", pastoComPiquete.data);
 
-  // ---------- Animal ----------
+  // Animal
   const animalInvalido = await req("POST", "/insertAnimal", { token, body: { nome: "", datanasc: "2023-02-31" } });
   assert(animalInvalido.data.status !== "ok", "InsertAnimal rejeita dados inválidos", animalInvalido.data);
 
@@ -164,7 +164,7 @@ async function main() {
   const updAnimal = await req("PUT", "/updateAnimal/" + animal.animalid, { token, body: { nome: nomeAnimal, datanasc: "2023-05-11" } });
   assert(updAnimal.data.status === "ok" && updAnimal.data.linhasAfetadas === 1, "UpdateAnimal", updAnimal.data);
 
-  // ---------- Alocado ----------
+  // Alocado
   const alocDatas = await req("POST", "/insertAlocado", {
     token,
     body: { animalidfk: animal.animalid, piqueteidfk: piquete.piqueteid, datainicio: "2026-11-20", datafinal: "2026-11-10" },
@@ -212,7 +212,7 @@ async function main() {
   const piqueteComAloc = await req("DELETE", "/deletePiquete/" + piquete.piqueteid, { token });
   assert(piqueteComAloc.data.status === "Piquete possui alocações ativas.", "DeletePiquete recusa piquete com alocações ativas", piqueteComAloc.data);
 
-  // ---------- Exclusões lógicas ----------
+  // Exclusão lógica
   const delAloc = await req("DELETE", "/deleteAlocado/" + alocado.alocadoid, { token });
   assert(delAloc.data.status === "ok" && delAloc.data.linhasAfetadas === 1, "DeleteAlocado", delAloc.data);
 
@@ -261,7 +261,7 @@ async function main() {
   });
   assert(piqueteNoPastoRemovido.data.status === "Pasto inexistente ou removido.", "InsertPiquete rejeita pasto removido", piqueteNoPastoRemovido.data);
 
-  // ---------- Conferência direta no PostgreSQL ----------
+  // Checagem no banco
   const pool = new Pool({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,

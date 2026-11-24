@@ -20,7 +20,7 @@ async function vwGetAllAnimais(servidorDw3, alertBox) {
 
   try {
     if (!servidorDw3) {
-      throw new Error('Endereço do servidor backend não configurado.');
+      throw new Error('Servidor backend não configurado.');
     }
 
     var response = await fetch(servidorDw3 + '/getAllAnimais', {
@@ -33,7 +33,7 @@ async function vwGetAllAnimais(servidorDw3, alertBox) {
     }
 
     if (data.status !== 'ok' || !Array.isArray(data.registro)) {
-      throw new Error(data.status || 'Resposta inválida do servidor backend.');
+      throw new Error(data.status || 'Resposta inválida do servidor.');
     }
 
     carregando.classList.add('d-none');

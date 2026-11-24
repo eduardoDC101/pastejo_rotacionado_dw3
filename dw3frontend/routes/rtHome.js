@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
   res.render('home', {
-    title: 'Painel principal',
+    title: 'Início',
     showNavbar: true,
     activeMenu: 'home'
   });

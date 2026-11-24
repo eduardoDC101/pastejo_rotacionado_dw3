@@ -51,7 +51,7 @@ function validarAlocado(registro) {
 
   registro.datainicio = dataInicio;
 
-  // A data final é opcional: alocação sem data final ainda está em andamento.
+  // datafinal vazia indica alocação em aberto
   if (registro.datafinal === undefined || registro.datafinal === null || String(registro.datafinal).trim() === "") {
     registro.datafinal = null;
     return "";

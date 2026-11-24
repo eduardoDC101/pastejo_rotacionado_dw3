@@ -1,5 +1,4 @@
-### Necessário para pegar o token
-### Post
+### Login para obter o token
 # @name loginAutenticado
 POST http://localhost:40000/Login HTTP/1.1
 content-type: application/json
@@ -77,7 +76,7 @@ Authorization: Bearer {{accessToken}}
 
 ###
 
-### teste de exclusão lógica (recusada enquanto houver piquetes ativos)
+### exclusão lógica (recusa com piquetes ativos)
 DELETE http://localhost:40000/deletePasto/1 HTTP/1.1
 content-type: application/json
 Authorization: Bearer {{accessToken}}

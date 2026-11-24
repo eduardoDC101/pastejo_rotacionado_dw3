@@ -119,7 +119,7 @@ async function vwGetPastoByID() {
     }
 
     if (data.status !== 'ok' || !Array.isArray(data.registro)) {
-      throw new Error(data.status || 'Resposta inválida do servidor backend.');
+      throw new Error(data.status || 'Resposta inválida do servidor.');
     }
 
     var pasto = data.registro[0];
