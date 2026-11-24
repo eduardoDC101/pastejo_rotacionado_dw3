@@ -2,16 +2,15 @@
 
 {% block content %}
   <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <div class="card page-card border-0">
     <div class="list-toolbar">
       <div>
         <p class="page-kicker fw-semibold mb-1">Movimentação</p>
         <h1 class="h4 fw-bold mb-1">Alocações</h1>
-        <p class="text-secondary mb-0">Alocações ativas de animais em piquetes.</p>
+        <p class="text-secondary mb-0">Histórico e alocações em andamento.</p>
       </div>
-      <a class="btn btn-primary" href="/alocados/form?oper=Cr" id="btnNovoAlocado">Incluir nova alocação</a>
+      <a class="btn btn-primary" href="/alocados/form?oper=Cr" id="btnNovoAlocado">Nova alocação</a>
     </div>
     <div class="card-body p-4 pt-3">
       <div id="alocadosAlert" class="alert d-none" role="alert"></div>

@@ -111,7 +111,7 @@ async function buscarRegistros(servidorDw3, rota) {
   }
 
   if (data.status !== 'ok' || !Array.isArray(data.registro)) {
-    throw new Error(data.status || 'Resposta inválida do servidor backend.');
+    throw new Error(data.status || 'Resposta inválida do servidor.');
   }
 
   return data.registro;
@@ -211,7 +211,7 @@ async function vwGetAlocadoByID() {
     }
 
     if (data.status !== 'ok' || !Array.isArray(data.registro)) {
-      throw new Error(data.status || 'Resposta inválida do servidor backend.');
+      throw new Error(data.status || 'Resposta inválida do servidor.');
     }
 
     var alocado = data.registro[0];

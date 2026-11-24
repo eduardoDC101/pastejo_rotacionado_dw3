@@ -25,7 +25,6 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
-//@ Utiliza o routerApp configurado em ./routes/router.js
 app.use(router);
 
 app.listen(port, "0.0.0.0", () => {

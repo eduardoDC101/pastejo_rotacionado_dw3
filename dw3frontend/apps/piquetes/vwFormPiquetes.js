@@ -93,7 +93,7 @@ async function carregarPastosToPiquetes(servidorDw3) {
     }
 
     if (data.status !== 'ok' || !Array.isArray(data.registro)) {
-      throw new Error(data.status || 'Resposta inválida do servidor backend.');
+      throw new Error(data.status || 'Resposta inválida do servidor.');
     }
 
     var pastoSelect = document.getElementById('pastoidfk');
@@ -167,7 +167,7 @@ async function vwGetPiqueteByID() {
     }
 
     if (data.status !== 'ok' || !Array.isArray(data.registro)) {
-      throw new Error(data.status || 'Resposta inválida do servidor backend.');
+      throw new Error(data.status || 'Resposta inválida do servidor.');
     }
 
     var piquete = data.registro[0];

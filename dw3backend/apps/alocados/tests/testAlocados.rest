@@ -1,5 +1,4 @@
-### Necessário para pegar o token
-### Post
+### Login para obter o token
 # @name loginAutenticado
 POST http://localhost:40000/Login HTTP/1.1
 content-type: application/json

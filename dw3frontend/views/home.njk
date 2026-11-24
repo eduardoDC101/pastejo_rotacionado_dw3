@@ -3,51 +3,51 @@
 {% block content %}
   <header class="home-intro">
     <p class="page-kicker fw-semibold mb-2">Pastejo Rotacionado</p>
-    <h1 class="h3 fw-bold mb-2">Painel principal</h1>
+    <h1 class="h3 fw-bold mb-2">Menu inicial</h1>
     <p class="text-secondary mb-0">Usuário conectado: <strong id="usuarioLogado"></strong></p>
   </header>
 
   <div class="row g-3">
-    <div class="col-md-6">
-      <a class="card page-card module-link text-reset h-100" href="/pastos">
+    <div class="col-md-6 home-float-col">
+      <a class="card page-card home-float-card text-reset h-100" href="/pastos">
         <div class="card-body p-0 d-flex">
-          <span class="module-index" aria-hidden="true">01</span>
+          <span class="module-index" aria-hidden="true"><i class="bi bi-map"></i></span>
           <div class="p-4">
             <h2 class="h5 fw-semibold mb-1">Pastos</h2>
-            <p class="text-secondary mb-0">Descrição e área total de cada pasto.</p>
+            <p class="text-secondary mb-0">Cadastro e área de cada pasto.</p>
           </div>
         </div>
       </a>
     </div>
-    <div class="col-md-6">
-      <a class="card page-card module-link text-reset h-100" href="/piquetes">
+    <div class="col-md-6 home-float-col">
+      <a class="card page-card home-float-card text-reset h-100" href="/piquetes">
         <div class="card-body p-0 d-flex">
-          <span class="module-index" aria-hidden="true">02</span>
+          <span class="module-index" aria-hidden="true"><i class="bi bi-geo-alt"></i></span>
           <div class="p-4">
             <h2 class="h5 fw-semibold mb-1">Piquetes</h2>
-            <p class="text-secondary mb-0">Divisões de um pasto, com latitude e longitude.</p>
+            <p class="text-secondary mb-0">Divisões de cada pasto com coordenadas.</p>
           </div>
         </div>
       </a>
     </div>
-    <div class="col-md-6">
-      <a class="card page-card module-link text-reset h-100" href="/animais">
+    <div class="col-md-6 home-float-col">
+      <a class="card page-card home-float-card text-reset h-100" href="/animais">
         <div class="card-body p-0 d-flex">
-          <span class="module-index" aria-hidden="true">03</span>
+          <span class="module-index" aria-hidden="true"><i class="bi bi-tag"></i></span>
           <div class="p-4">
             <h2 class="h5 fw-semibold mb-1">Animais</h2>
-            <p class="text-secondary mb-0">Nome e data de nascimento dos animais.</p>
+            <p class="text-secondary mb-0">Cadastro de animais do rebanho.</p>
           </div>
         </div>
       </a>
     </div>
-    <div class="col-md-6">
-      <a class="card page-card module-link text-reset h-100" href="/alocados">
+    <div class="col-md-6 home-float-col">
+      <a class="card page-card home-float-card text-reset h-100" href="/alocados">
         <div class="card-body p-0 d-flex">
-          <span class="module-index" aria-hidden="true">04</span>
+          <span class="module-index" aria-hidden="true"><i class="bi bi-arrow-left-right"></i></span>
           <div class="p-4">
             <h2 class="h5 fw-semibold mb-1">Alocações</h2>
-            <p class="text-secondary mb-0">Período em que cada animal fica em um piquete.</p>
+            <p class="text-secondary mb-0">Período dos animais em cada piquete.</p>
           </div>
         </div>
       </a>

@@ -1,16 +1,23 @@
 {% extends "layout.njk" %}
 
 {% block content %}
+  <div class="login-theme-bar">
+    <button type="button" class="theme-toggle-btn" id="btnToggleTheme" aria-pressed="false">
+      <i class="bi bi-moon-stars-fill" id="themeIcon" aria-hidden="true"></i>
+      <span id="themeLabel">Tema escuro</span>
+    </button>
+  </div>
+
   <section class="login-screen d-flex align-items-center justify-content-center">
     <div class="login-card card border-0">
       <div class="row g-0">
         <div class="col-md-5 login-banner d-flex flex-column justify-content-between px-4 py-4 py-md-5">
-          <p class="page-kicker fw-semibold mb-3">ERP Agrícola</p>
+          <p class="page-kicker fw-semibold mb-3">Controle de Pastagens</p>
           <h1 class="h4 fw-bold mb-0">Pastejo Rotacionado</h1>
         </div>
         <div class="col-md-7">
           <div class="card-body p-4 p-md-5">
-            <p class="login-lead mb-4">Entre com o usuário cadastrado para acessar pastos, piquetes, animais e alocações.</p>
+            <p class="login-lead mb-4">Informe seu usuário e senha para entrar.</p>
 
             <form id="loginForm" data-servidor-dw3="{{ servidorDw3 }}">
               <div id="loginError" class="alert alert-danger d-none" role="alert"></div>
